@@ -1,0 +1,27 @@
+{
+  "name": "intraday",
+  "version": "0.0.0",
+  "description": "Fetch intraday stock data from yahoo",
+  "main": "lib/intraday.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "coffee test/test.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nickdesaulniers/intraday.git"
+  },
+  "keywords": [
+    "yahoo",
+    "intraday",
+    "stock",
+    "quote"
+  ],
+  "author": "Nick Desaulniers",
+  "license": "Beerware",
+  "dependencies": {
+    "csv": "0.3.6"
+  }
+}
