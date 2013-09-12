@@ -5,13 +5,19 @@ Fetch intraday stock data from yahoo
 `npm install intraday`
 ```javascript
 var intraday = require('intraday');
-
 var symbol = 'TSLA';
-
 
 intraday(symbol, function (err, data) {
   console.log(err ? err : data);
 });
+
+// or
+
+var numDays = 5; // previous number of days worth of intraday
+intraday(symbol, numDays, function (err, data) {
+  console.log(err ? err : data);
+});
+
 ```
 
 You should get an array of objects like:
