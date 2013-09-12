@@ -13,7 +13,8 @@ intraday(symbol, function (err, data) {
 
 // or
 
-var numDays = 5; // previous number of days worth of intraday
+// previous number of days worth of intraday, defaults to 1 (today)
+var numDays = 5;
 intraday(symbol, numDays, function (err, data) {
   console.log(err ? err : data);
 });
