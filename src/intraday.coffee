@@ -24,16 +24,18 @@ module.exports = (symbol, numDays, cb) ->
   return module.exports arguments[0], 1, arguments[1] if arguments.length is 2
 
   url = "http://chartapi.finance.yahoo.com/instrument/1.0/#{symbol}/chartdata;type=quote;range=#{numDays}d/csv"
-  http.get url, (res) ->
+  req = http.get url, (res) ->
     if res.statusCode is 200
       csv().from(res).to.array (data) ->
+        cb? 'No data', null unless data
         values = data.filter filt
         keys = values.shift()
-        keys = keys.map clean
+        keys = keys.map? clean
         cb? null, toObj keys, values
         null
     else
       cb? res.statusCode, null
     null
+  req.on 'error', (e) -> cb? e.message, null
   null
 
