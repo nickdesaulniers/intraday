@@ -29,6 +29,7 @@ module.exports = (symbol, numDays, cb) ->
       csv().from(res).to.array (data) ->
         cb? 'No data', null unless data
         values = data.filter filt
+        cb? 'Invalid symbol', null unless values.length > 0
         keys = values.shift()
         keys = keys.map? clean
         cb? null, toObj keys, values
