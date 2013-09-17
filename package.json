@@ -1,6 +1,6 @@
 {
   "name": "intraday",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Fetch intraday stock data from yahoo",
   "main": "lib/intraday.js",
   "directories": {
