@@ -27,13 +27,12 @@ module.exports = (symbol, numDays, cb) ->
   req = http.get url, (res) ->
     if res.statusCode is 200
       csv().from(res).to.array (data) ->
-        cb? 'No data', null unless data
+        return cb? 'No data', null unless data
         values = data.filter filt
         keys = values.shift()
-        cb? 'Invalid symbol', null unless keys?
+        return cb? 'Invalid symbol', null unless keys?
         keys = keys.map? clean
         cb? null, toObj keys, values
-        null
     else
       cb? res.statusCode, null
     null
